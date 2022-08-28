@@ -11,14 +11,14 @@ fn calculatedieseldsagefordistance(distance: &str, yearOfProduction: &str, fuelU
     let year: f32 = yearOfProduction.parse().unwrap();
     let fuel: f32 = fuelUsagePer100KM.parse().unwrap();
     let fuelUsage: f32 = fuel*dist/100.0;
-    format!("fuelUsage: {}",fuelUsage)
+    format!("{{fuelUsage: {}}}",fuelUsage)
 }
 
 #[get("/probabilityOfUnitInjectorFail?<VIN>")]
 fn probabilityofunitinjectorfail(VIN: &str) -> String {
     let mut rng = rand::thread_rng();
     let failprobability: u8 = rng.gen_range(0..101);
-    format!("failProbability: {}%",failprobability)
+    format!("{{failProbability: {}%}}",failprobability)
 }
 
 #[launch]
